@@ -10,7 +10,7 @@ from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
 from dotenv import load_dotenv
 load_dotenv()
 
-## Arxiv And wikipedia Tools
+####  Arxiv And wikipedia Tools
 arxiv_wrapper=ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=200)
 arxiv=ArxivQueryRun(api_wrapper=arxiv_wrapper)
 
@@ -51,4 +51,5 @@ if prompt:=st.chat_input(placeholder="enter your query ?"):
         response=search_agent.run(st.session_state.messages,callbacks=[st_cb])
         st.session_state.messages.append({'role':'assistant',"content":response})
         st.write(response)
+
 
